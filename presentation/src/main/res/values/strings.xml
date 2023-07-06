@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login">Log In</string>
+    <string name="email">Email</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login_hint">Login</string>
+    <string name="password_hint">Password</string>
+    <string name="not_have_acc">Don`t have account?</string>
+    <string name="have_acc">Have account?</string>
+    <string name="registration">Registration</string>
+    <string name="ok">ok</string>
+    <string name="error_fields">Всі поля мають бути заповнені</string>
+</resources>
