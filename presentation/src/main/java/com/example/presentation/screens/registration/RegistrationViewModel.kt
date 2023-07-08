@@ -15,9 +15,9 @@ class RegistrationViewModel(private val authRepository: AuthRepository) : ViewMo
 
     fun registration(username: String, email: String, password: String) = viewModelScope.launch {
         (CoroutineExceptionHandler { _, throwable -> exceptionFlow.tryEmit(throwable) })
-        val token = withContext(Dispatchers.IO) {
+        withContext(Dispatchers.IO) {
             authRepository.registration(username, email, password)
         }
-        userAuthFlow.emit(token.isNotEmpty())
+        userAuthFlow.emit(true)
     }
 }

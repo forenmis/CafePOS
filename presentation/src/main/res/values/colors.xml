@@ -7,4 +7,8 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+    <color name="theme_color">#FFE1CDFB</color>
+    <color name="theme_color_light">#ABE1CDFB</color>
+    <color name="active_text_color">#616175</color>
+    <color name="inactive_text_color">#8C8C97</color>
 </resources>

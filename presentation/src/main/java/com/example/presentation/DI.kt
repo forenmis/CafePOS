@@ -1,6 +1,7 @@
 package com.example.presentation
 
 import com.example.presentation.screens.home.HomeViewModel
+import com.example.presentation.screens.home.menu.MenuViewModel
 import com.example.presentation.screens.login.LoginViewModel
 import com.example.presentation.screens.main.MainViewModel
 import com.example.presentation.screens.registration.RegistrationViewModel
@@ -12,4 +13,5 @@ val presentationModule = module {
     viewModel { LoginViewModel(get()) }
     viewModel { MainViewModel() }
     viewModel { RegistrationViewModel(get()) }
+    viewModel { MenuViewModel(get()) }
 }
