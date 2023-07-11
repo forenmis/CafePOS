@@ -8,5 +8,5 @@ import org.koin.dsl.module
 
 val domainModule = module {
     factory<AuthRepository> { AuthRepositoryImpl(get(), get()) }
-    factory<MenuRepository> { MenuRepositoryImpl() }
+    factory<MenuRepository> { MenuRepositoryImpl(get()) }
 }

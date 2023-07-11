@@ -28,7 +28,7 @@ class MenuItemAdapter : RecyclerView.Adapter<MenuItemAdapter.VH>() {
                 tvPortionSize.text = tvPortionSize.context.getString(
                     R.string.pattern_portion_size,
                     item.portionSize,
-                    item.portion.typePortion
+                    item.portionType.shortName
                 )
             }
         }

@@ -8,12 +8,15 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.presentation.base.BaseFragment
 import com.example.presentation.databinding.FragmentMenuBinding
+import com.example.presentation.screens.home.HomeViewModel
 import com.example.presentation.screens.home.menu.adapters.MenuAdapter
 import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MenuFragment : BaseFragment<FragmentMenuBinding>() {
     private val viewModel by viewModel<MenuViewModel>()
+    private val homeViewModel by activityViewModel<HomeViewModel>()
 
     private lateinit var categoryAdapter: MenuAdapter
 
@@ -39,6 +42,9 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>() {
         }
         lifecycleScope.launch {
             viewModel.menuFlow.collect { categoryAdapter.updateItems(it) }
+        }
+        binding.btCreate.setOnClickListener {
+            homeViewModel.toCreateScreen()
         }
     }
 }

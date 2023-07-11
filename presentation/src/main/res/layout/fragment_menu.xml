@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_create"
         app:tint="@color/active_text_color"
+        android:id="@+id/btCreate"
         android:tint="@color/theme_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
