@@ -26,6 +26,10 @@ internal class DatabaseManagerImpl(context: Context) : DatabaseManager {
         return database.categoryDao().categoryCount()
     }
 
+    override suspend fun getCategoryById(id: Long): MenuCategoryDB {
+        return database.categoryDao().getCategoryById(id)
+    }
+
     override suspend fun insertItem(menuItemDB: MenuItemDB): Long {
         return database.itemMenuDao().insertItem(menuItemDB)
     }
@@ -52,6 +56,10 @@ internal class DatabaseManagerImpl(context: Context) : DatabaseManager {
 
     override suspend fun portionCount(): Int {
         return database.portionDao().portionCount()
+    }
+
+    override suspend fun getPortionById(id: Long): MenuPortionDB {
+        return database.portionDao().getPortionById(id)
     }
 
     override suspend fun getMenuCategoriesWithMenuItems(): List<MenuCategoriesWithMenuItems> {

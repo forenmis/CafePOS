@@ -22,4 +22,6 @@ interface MenuCategoryDao {
     @Query("SELECT * FROM menu")
     @Transaction
     suspend fun getMenuCategoriesWithMenuItems(): List<MenuCategoriesWithMenuItems>
+    @Query("SELECT * FROM menu WHERE id = :id")
+    suspend fun getCategoryById(id : Long) : MenuCategoryDB
 }

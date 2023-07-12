@@ -1,6 +1,9 @@
 package com.example.presentation
 
 import com.example.presentation.screens.home.HomeViewModel
+import com.example.presentation.screens.home.create.CreateMenuViewModel
+import com.example.presentation.screens.home.create.category_bottom_sheet.BottomSheetViewModel
+import com.example.presentation.screens.home.create.type_portion__bottom_sheet.SelectTypeViewModel
 import com.example.presentation.screens.home.menu.MenuViewModel
 import com.example.presentation.screens.login.LoginViewModel
 import com.example.presentation.screens.main.MainViewModel
@@ -14,4 +17,7 @@ val presentationModule = module {
     viewModel { MainViewModel() }
     viewModel { RegistrationViewModel(get()) }
     viewModel { MenuViewModel(get()) }
+    viewModel { BottomSheetViewModel(get()) }
+    viewModel { CreateMenuViewModel(get()) }
+    viewModel { SelectTypeViewModel(get()) }
 }

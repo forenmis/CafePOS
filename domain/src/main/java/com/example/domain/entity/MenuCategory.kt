@@ -13,7 +13,7 @@ sealed class MenuCategoryIcon(val name: String) {
     object Other : MenuCategoryIcon("Other")
 
     companion object {
-        fun getCategoryIconByName(name: String): MenuCategoryIcon {
+        fun getCategoryIconByName(name: String?): MenuCategoryIcon {
             return when (name) {
                 Coffee.name -> Coffee
                 Cake.name -> Cake

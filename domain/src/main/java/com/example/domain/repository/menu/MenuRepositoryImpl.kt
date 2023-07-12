@@ -9,6 +9,7 @@ import com.example.domain.entity.toMenuCategory
 import com.example.domain.entity.toMenuCategoryDB
 import com.example.domain.entity.toMenuItem
 import com.example.domain.entity.toMenuItemDB
+import com.example.domain.entity.toMenuPortion
 import com.example.domain.entity.toMenuPortionDB
 
 internal class MenuRepositoryImpl(private val databaseManager: DatabaseManager) : MenuRepository {
@@ -36,8 +37,8 @@ internal class MenuRepositoryImpl(private val databaseManager: DatabaseManager) 
             databaseManager.insertCategory(cakeCategory.toMenuCategoryDB())
             databaseManager.insertCategory(otherCategory.toMenuCategoryDB())
 
-            val portionG = PortionType(1L, "g", "gram")
-            val portionMl = PortionType(2L, "ml", "millilitres")
+            val portionG = PortionType(1L, "gram", "g")
+            val portionMl = PortionType(2L, "millilitres", "ml")
 
             databaseManager.insertPortion(portionG.toMenuPortionDB())
             databaseManager.insertPortion(portionMl.toMenuPortionDB())
@@ -88,8 +89,6 @@ internal class MenuRepositoryImpl(private val databaseManager: DatabaseManager) 
 
         }
     }
-
-
     override suspend fun getMenu(): List<MenuCategory> {
         val menuCategoriesWithMenuItems = databaseManager.getMenuCategoriesWithMenuItems()
         return menuCategoriesWithMenuItems.map { menuCategoryWithMenuItems ->
@@ -98,5 +97,19 @@ internal class MenuRepositoryImpl(private val databaseManager: DatabaseManager) 
             }
             menuCategoryWithMenuItems.category.toMenuCategory(menuItems)
         }
+    }
+
+    override suspend fun getPortionById(id : Long): PortionType {
+        val portionType = databaseManager.getPortionById(id)
+        return portionType.toMenuPortion()
+    }
+
+    override suspend fun getCategoryById(id: Long): MenuCategory {
+        val category = databaseManager.getCategoryById(id)
+        return category.toMenuCategory(emptyList())
+    }
+
+    override suspend fun getAllPortionTypes(): List<PortionType> {
+        return databaseManager.getAllPortions().map { it.toMenuPortion() }
     }
 }
