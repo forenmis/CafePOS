@@ -20,5 +20,7 @@ interface ItemMenuDao {
     @Query("SELECT * FROM menuItem WHERE categoryId = :categoryId")
     suspend fun getItemsByCategory(categoryId: Long): List<MenuItemDB>
 
+    @Insert
+    suspend fun saveMenuItem(itemDB: MenuItemDB)
 
 }

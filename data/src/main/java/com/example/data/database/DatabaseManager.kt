@@ -28,4 +28,6 @@ interface DatabaseManager {
 
     suspend fun getMenuCategoriesWithMenuItems() : List<MenuCategoriesWithMenuItems>
 
+    suspend fun saveMenuItem(itemDB: MenuItemDB)
+
 }

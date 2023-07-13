@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "menu")
 data class MenuCategoryDB(//самая большая
     @PrimaryKey(autoGenerate = true)
-    val id: Long,
+    val id: Long = 0,
     val name: String,
     val menuCategoryIcon: String
 )

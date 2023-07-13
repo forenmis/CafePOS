@@ -112,4 +112,8 @@ internal class MenuRepositoryImpl(private val databaseManager: DatabaseManager) 
     override suspend fun getAllPortionTypes(): List<PortionType> {
         return databaseManager.getAllPortions().map { it.toMenuPortion() }
     }
+
+    override suspend fun saveMenuItem(item: MenuItem) {
+        return databaseManager.saveMenuItem(item.toMenuItemDB())
+    }
 }

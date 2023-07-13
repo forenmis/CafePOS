@@ -65,4 +65,8 @@ internal class DatabaseManagerImpl(context: Context) : DatabaseManager {
     override suspend fun getMenuCategoriesWithMenuItems(): List<MenuCategoriesWithMenuItems> {
         return database.categoryDao().getMenuCategoriesWithMenuItems()
     }
+
+    override suspend fun saveMenuItem(itemDB: MenuItemDB) {
+        return database.itemMenuDao().saveMenuItem(itemDB)
+    }
 }

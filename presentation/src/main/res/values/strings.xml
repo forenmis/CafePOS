@@ -17,6 +17,7 @@
     <string name="error_fields">Всі поля мають бути заповнені</string>
     <string name="name">Назва</string>
     <string name="price">Ціна</string>
+    <string name="select">Оберіть</string>
     <string name="add_image">Додати зображення</string>
     <string name="select_category">Оберіть категорію</string>
     <string name="portion">Порція</string>
@@ -25,4 +26,5 @@
     <string name="ml">мл</string>
     <string name="add">Додати</string>
     <string name="pattern_portion_size">%1d %2s</string>
+    <string name="not_saving">Оберіть всі поля та додайте фото</string>
 </resources>

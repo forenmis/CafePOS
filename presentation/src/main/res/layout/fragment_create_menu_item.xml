@@ -80,10 +80,11 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivStrokeBorder"
-        android:layout_width="120dp"
-        android:layout_height="100dp"
+        android:id="@+id/ivPictureContainer"
+        android:layout_width="150dp"
+        android:layout_height="120dp"
         android:layout_marginVertical="16dp"
+        android:scaleType="centerCrop"
         android:background="@drawable/shape_stroke"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -97,18 +98,26 @@
         android:gravity="center"
         android:padding="4dp"
         android:text="@string/add_image"
-        app:layout_constraintBottom_toBottomOf="@id/ivStrokeBorder"
-        app:layout_constraintEnd_toEndOf="@id/ivStrokeBorder"
-        app:layout_constraintStart_toStartOf="@id/ivStrokeBorder" />
+        app:layout_constraintBottom_toBottomOf="@id/ivPictureContainer"
+        app:layout_constraintEnd_toEndOf="@id/ivPictureContainer"
+        app:layout_constraintStart_toStartOf="@id/ivPictureContainer" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupTakePicture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="ivPictureContainer, ivPictureGallery, tvAddPicture" />
+
 
     <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivPictureGallery"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:padding="8dp"
         app:layout_constraintBottom_toTopOf="@id/tvAddPicture"
-        app:layout_constraintEnd_toEndOf="@id/ivStrokeBorder"
-        app:layout_constraintStart_toStartOf="@id/ivStrokeBorder"
-        app:layout_constraintTop_toTopOf="@id/ivStrokeBorder"
+        app:layout_constraintEnd_toEndOf="@id/ivPictureContainer"
+        app:layout_constraintStart_toStartOf="@id/ivPictureContainer"
+        app:layout_constraintTop_toTopOf="@id/ivPictureContainer"
         app:srcCompat="@drawable/ic_picture" />
 
     <com.google.android.material.button.MaterialButton
@@ -123,15 +132,15 @@
         app:cornerRadius="8dp"
         app:icon="@drawable/ic_category"
         app:iconTint="@color/inactive_text_color"
-        app:layout_constraintTop_toBottomOf="@id/ivStrokeBorder" />
+        app:layout_constraintTop_toBottomOf="@id/ivPictureContainer" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btTypePortion"
         android:layout_width="100dp"
         android:layout_height="0dp"
+        android:textColor="@color/inactive_text_color"
         android:layout_marginHorizontal="16dp"
-        android:text="@string/g"
-        android:textColor="@color/active_text_color"
+        android:text="@string/select"
         app:backgroundTint="@color/theme_color"
         app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="@id/tilPortion"

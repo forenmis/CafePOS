@@ -47,4 +47,9 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>() {
             homeViewModel.toCreateScreen()
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getMenu()
+    }
 }

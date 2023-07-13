@@ -1,7 +1,7 @@
 package com.example.domain.entity
 
 data class MenuCategory(//самая большая
-    val id: Long,
+    val id: Long = 0,
     val name: String,
     val icon: MenuCategoryIcon,
     val menuItems: List<MenuItem>

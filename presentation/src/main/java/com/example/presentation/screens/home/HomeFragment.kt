@@ -41,6 +41,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             lifecycle = lifecycle
         )
         binding.vpContainerHome.adapter = homeAdapter
+        binding.vpContainerHome.isUserInputEnabled = false
         binding.bottomBar.setOnItemSelectedListener { item ->
             binding.vpContainerHome.currentItem = Pages.findPageByMenuId(item.itemId).position
             return@setOnItemSelectedListener true

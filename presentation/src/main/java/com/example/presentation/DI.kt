@@ -18,6 +18,6 @@ val presentationModule = module {
     viewModel { RegistrationViewModel(get()) }
     viewModel { MenuViewModel(get()) }
     viewModel { BottomSheetViewModel(get()) }
-    viewModel { CreateMenuViewModel(get()) }
+    viewModel { CreateMenuViewModel(get(), get()) }
     viewModel { SelectTypeViewModel(get()) }
 }
