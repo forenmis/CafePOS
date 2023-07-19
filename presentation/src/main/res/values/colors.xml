@@ -11,4 +11,5 @@
     <color name="theme_color_light">#ABE1CDFB</color>
     <color name="active_text_color">#616175</color>
     <color name="inactive_text_color">#8C8C97</color>
+    <color name="theme_light">#1EE1CDFB</color>
 </resources>

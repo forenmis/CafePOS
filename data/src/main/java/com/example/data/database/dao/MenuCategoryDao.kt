@@ -11,7 +11,7 @@ import com.example.data.database.entity.MenuCategoryDB
 interface MenuCategoryDao {
 
     @Insert
-    suspend fun insertCategory(categoryDB: MenuCategoryDB): Long
+    suspend fun insertCategory(categoryDB: MenuCategoryDB)
 
     @Query("SELECT * FROM menu")
     suspend fun getAllCategories(): List<MenuCategoryDB>

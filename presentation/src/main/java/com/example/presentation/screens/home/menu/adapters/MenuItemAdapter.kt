@@ -23,7 +23,7 @@ class MenuItemAdapter : RecyclerView.Adapter<MenuItemAdapter.VH>() {
         fun feelItemNote(item: MenuItem) {
             with(binding) {
                 tvItemName.text = item.name
-                tvPrice.text = item.price.toString()
+                tvPrice.text = tvPrice.context.getString(R.string.pattern_portion_price, item.price.toString())
                 ivItemMenuImage.setImage(item.image)
                 tvPortionSize.text = tvPortionSize.context.getString(
                     R.string.pattern_portion_size,

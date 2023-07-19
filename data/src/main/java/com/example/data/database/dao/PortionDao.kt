@@ -9,7 +9,7 @@ import com.example.data.database.entity.MenuPortionDB
 interface PortionDao {
 
     @Insert
-    suspend fun insertPortion(portionDB: MenuPortionDB): Long
+    suspend fun insertPortion(portionDB: MenuPortionDB)
 
     @Query("SELECT * FROM portionTypes")
     suspend fun getAllPortions(): List<MenuPortionDB>

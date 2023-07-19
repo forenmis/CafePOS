@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.presentation.databinding.TypePortionBottomSheetBinding
 import com.example.presentation.screens.home.create.CreateMenuItemFragment.Companion.BUNDLE_KEY_TYPE
 import com.example.presentation.screens.home.create.CreateMenuItemFragment.Companion.REQUEST_TYPE
+import com.example.presentation.screens.home.create.type_portion__bottom_sheet.create_type_portion.CreateTypePortionBottomSheet
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -47,5 +48,10 @@ class SelectTypePortionBottomSheet : BottomSheetDialogFragment() {
             }
         }
         lifecycleScope.launch { viewModel.portionTypesFlow.collect { portionAdapter.updateItems(it) } }
+        binding.tvAddCategory.setOnClickListener {
+            val createPortionTypeBottomSheet = CreateTypePortionBottomSheet()
+            createPortionTypeBottomSheet.show(parentFragmentManager, "create_portions")
+            dismiss()
+        }
     }
 }

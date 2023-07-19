@@ -116,4 +116,15 @@ internal class MenuRepositoryImpl(private val databaseManager: DatabaseManager) 
     override suspend fun saveMenuItem(item: MenuItem) {
         return databaseManager.saveMenuItem(item.toMenuItemDB())
     }
+
+    override suspend fun saveTypePortion(portionType: PortionType) {
+       return databaseManager.insertPortion(portionType.toMenuPortionDB())
+    }
+
+    override suspend fun saveCategory(category: MenuCategory) {
+        TODO("Not yet implemented")
+    }
 }
+
+// databaseManager.insertCategory(coffeeCategory.toMenuCategoryDB())
+//

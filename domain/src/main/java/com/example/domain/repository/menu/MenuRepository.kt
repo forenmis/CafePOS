@@ -15,4 +15,8 @@ interface MenuRepository {
     suspend fun getAllPortionTypes() : List<PortionType>
 
     suspend fun saveMenuItem(item : MenuItem)
+
+    suspend fun saveTypePortion(portionType: PortionType)
+
+    suspend fun saveCategory(category: MenuCategory)
 }

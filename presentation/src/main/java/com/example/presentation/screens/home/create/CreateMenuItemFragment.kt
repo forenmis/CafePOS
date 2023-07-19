@@ -76,6 +76,7 @@ class CreateMenuItemFragment : BaseFragment<FragmentCreateMenuItemBinding>() {
             )
              findNavController().popBackStack()
         }
+        binding.ivBack.setOnClickListener { findNavController().popBackStack() }
         lifecycleScope.launch {
             viewModel.chooseCategoryFlow.collect { category ->
                 with(binding.btCategory) {

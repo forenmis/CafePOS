@@ -14,7 +14,7 @@ internal class DatabaseManagerImpl(context: Context) : DatabaseManager {
         "awesomenu"
     ).build()
 
-    override suspend fun insertCategory(category: MenuCategoryDB): Long {
+    override suspend fun insertCategory(category: MenuCategoryDB){
         return database.categoryDao().insertCategory(category)
     }
 
@@ -30,7 +30,7 @@ internal class DatabaseManagerImpl(context: Context) : DatabaseManager {
         return database.categoryDao().getCategoryById(id)
     }
 
-    override suspend fun insertItem(menuItemDB: MenuItemDB): Long {
+    override suspend fun insertItem(menuItemDB: MenuItemDB) {
         return database.itemMenuDao().insertItem(menuItemDB)
     }
 
@@ -46,7 +46,7 @@ internal class DatabaseManagerImpl(context: Context) : DatabaseManager {
         return database.itemMenuDao().getItemsByCategory(categoryId)
     }
 
-    override suspend fun insertPortion(portionDB: MenuPortionDB): Long {
+    override suspend fun insertPortion(portionDB: MenuPortionDB) {
         return database.portionDao().insertPortion(portionDB)
     }
 

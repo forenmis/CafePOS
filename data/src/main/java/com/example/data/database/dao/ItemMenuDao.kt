@@ -9,7 +9,7 @@ import com.example.data.database.entity.MenuItemDB
 interface ItemMenuDao {
 
     @Insert
-    suspend fun insertItem(menuItemDB: MenuItemDB): Long
+    suspend fun insertItem(menuItemDB: MenuItemDB)
 
     @Query("SELECT * FROM menuItem")
     suspend fun getAllItems(): List<MenuItemDB>
