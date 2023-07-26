@@ -7,9 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.HORIZONTAL
 import com.example.domain.entity.MenuCategory
-import com.example.domain.entity.MenuCategoryIcon
-import com.example.presentation.R
 import com.example.presentation.databinding.ItemMenuCategoryBinding
+import com.example.presentation.utils.getIconByCategory
 
 class MenuAdapter : RecyclerView.Adapter<MenuAdapter.VH>() {
     private var menu = emptyList<MenuCategory>()
@@ -54,11 +53,7 @@ class MenuAdapter : RecyclerView.Adapter<MenuAdapter.VH>() {
         }
 
         private fun defineIcon(menuCategory: MenuCategory) {
-            val icon = when (menuCategory.icon) {
-                MenuCategoryIcon.Cake -> R.drawable.ic_cake
-                MenuCategoryIcon.Coffee -> R.drawable.ic_coffee
-                MenuCategoryIcon.Other -> R.drawable.ic_something
-            }
+            val icon = getIconByCategory(menuCategory.icon)
             binding.tvCategory.setCompoundDrawablesWithIntrinsicBounds(icon, 0, 0, 0)
         }
     }

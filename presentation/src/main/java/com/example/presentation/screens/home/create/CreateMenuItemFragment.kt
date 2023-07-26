@@ -19,15 +19,15 @@ import com.example.presentation.base.BaseFragment
 import com.example.presentation.databinding.FragmentCreateMenuItemBinding
 import com.example.presentation.screens.home.create.category_bottom_sheet.SelectCategoryBottomSheet
 import com.example.presentation.screens.home.create.type_portion__bottom_sheet.SelectTypePortionBottomSheet
+import com.example.presentation.utils.getIconByCategory
 import com.example.presentation.utils.getValue
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class CreateMenuItemFragment : BaseFragment<FragmentCreateMenuItemBinding>() {
+class CreateMenuItemFragment : BaseFragment<FragmentCreateMenuItemBinding, CreateMenuViewModel>() {
+    override val viewModel by viewModel<CreateMenuViewModel>()
+
     private lateinit var launcher: ActivityResultLauncher<Uri>
-
-    private val viewModel by viewModel<CreateMenuViewModel>()
-
     override fun createViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -81,7 +81,7 @@ class CreateMenuItemFragment : BaseFragment<FragmentCreateMenuItemBinding>() {
             viewModel.chooseCategoryFlow.collect { category ->
                 with(binding.btCategory) {
                     text = category.name
-                    val categoryIcon = viewModel.getIconByCategory(category.icon)
+                    val categoryIcon = getIconByCategory(category.icon)
                     setIconResource(categoryIcon)
                 }
             }

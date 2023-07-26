@@ -7,4 +7,10 @@ interface AuthRepository {
     suspend fun login(username: String, password: String)
 
     suspend fun logOut()
+
+    suspend fun getToken() : String
+
+    suspend fun checkToken() : Boolean
+
+    suspend fun clearToken()
 }

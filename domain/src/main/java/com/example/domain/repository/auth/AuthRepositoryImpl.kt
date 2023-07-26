@@ -22,4 +22,18 @@ internal class AuthRepositoryImpl(
         appPreferences.clear()
     }
 
+    override suspend fun getToken(): String {
+        return if (appPreferences.getToken().isNullOrEmpty()){
+            ""
+        } else appPreferences.getToken().toString()
+    }////todo: вот с этой хуетой решить, она не нужна
+
+
+    override suspend fun checkToken(): Boolean {
+        return appPreferences.checkToken()
+    }
+
+    override suspend fun clearToken() {
+        return appPreferences.clear()
+    }
 }

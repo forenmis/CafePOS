@@ -9,13 +9,16 @@ import androidx.navigation.fragment.findNavController
 import com.example.presentation.R
 import com.example.presentation.base.BaseFragment
 import com.example.presentation.databinding.FragmentLoginBinding
+import com.example.presentation.screens.main.MainViewModel
 import com.example.presentation.utils.getValue
 import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class LoginFragment : BaseFragment<FragmentLoginBinding>() {
+class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
 
-    private val viewModel by viewModel<LoginViewModel>()
+    override val viewModel by viewModel<LoginViewModel>()
+    private val mainViewModel by activityViewModel<MainViewModel>()
 
     override fun createViewBinding(
         inflater: LayoutInflater,
@@ -38,6 +41,9 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                     password = binding.etPassword.getValue()
                 )
             }
+        }
+        lifecycleScope.launch {
+            viewModel.processFlow.collect { mainViewModel.processFlow.emit(it) }
         }
         lifecycleScope.launch {
             viewModel.userAuthFlow.collect {

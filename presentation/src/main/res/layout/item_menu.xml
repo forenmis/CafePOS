@@ -62,7 +62,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvItemName"
-            tools:srcCompat="@drawable/ic_coffee" />
+            tools:srcCompat="@drawable/ic_type_coffee" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

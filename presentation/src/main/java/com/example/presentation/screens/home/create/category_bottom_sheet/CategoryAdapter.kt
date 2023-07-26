@@ -39,9 +39,14 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.VH>() {
 
         fun feelCategories(category: MenuCategory) {
             val icon = when (category.icon) {
-                MenuCategoryIcon.Cake -> R.drawable.ic_cake
-                MenuCategoryIcon.Coffee -> R.drawable.ic_coffee
+                MenuCategoryIcon.Cake -> R.drawable.ic_type_cake
+                MenuCategoryIcon.Coffee -> R.drawable.ic_type_coffee
                 MenuCategoryIcon.Other -> R.drawable.ic_something
+                MenuCategoryIcon.Bakery ->  R.drawable.ic_type_bakery
+                MenuCategoryIcon.Blender ->  R.drawable.ic_type_blender
+                MenuCategoryIcon.FastFood -> R.drawable.ic_type_fastfood
+                MenuCategoryIcon.HomeFood -> R.drawable.ic_type_homefood
+                MenuCategoryIcon.Tea -> R.drawable.ic_type_tea
             }
             binding.tvCategory.setCompoundDrawablesWithIntrinsicBounds(icon, 0, 0, 0)
             binding.tvCategory.text = category.name

@@ -14,8 +14,8 @@ import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MenuFragment : BaseFragment<FragmentMenuBinding>() {
-    private val viewModel by viewModel<MenuViewModel>()
+class MenuFragment : BaseFragment<FragmentMenuBinding, MenuViewModel>() {
+    override val viewModel by viewModel<MenuViewModel>()
     private val homeViewModel by activityViewModel<HomeViewModel>()
 
     private lateinit var categoryAdapter: MenuAdapter

@@ -13,8 +13,8 @@ import com.example.presentation.screens.home.create.Pages
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
 
-class HomeFragment : BaseFragment<FragmentHomeBinding>() {
-    private val viewModel by activityViewModel<HomeViewModel>()
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
+    override val viewModel by activityViewModel<HomeViewModel>()
 
     private val callback: ViewPager2.OnPageChangeCallback =
         object : ViewPager2.OnPageChangeCallback() {
@@ -49,6 +49,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         lifecycleScope.launch {
             viewModel.menuToCreateScreenFlow.collect {
                 val action = HomeFragmentDirections.actionHomeFragmentToCreateMenuItemFragment()
+                findNavController().navigate(action)
+            }
+        }
+        lifecycleScope.launch {
+            viewModel.homeToLoginScreenFlow.collect {
+                val action = HomeFragmentDirections.actionHomeFragmentToLoginFragment()
                 findNavController().navigate(action)
             }
         }

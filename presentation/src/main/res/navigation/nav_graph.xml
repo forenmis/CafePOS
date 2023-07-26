@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/loginCheckFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -61,10 +61,30 @@
             app:popUpToInclusive="false"
             android:id="@+id/action_homeFragment_to_createMenuItemFragment"
             app:destination="@id/createMenuItemFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_loginFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/createMenuItemFragment"
         tools:layout="@layout/fragment_create_menu_item"
         android:name="com.example.presentation.screens.home.create.CreateMenuItemFragment"
         android:label="CreateMenuItemFragment" />
+    <fragment
+        android:id="@+id/loginCheckFragment"
+        android:name="com.example.presentation.screens.login_check_screen.LoginCheckFragment"
+        android:label="LoginCheckFragment" >
+        <action
+            android:id="@+id/action_loginCheckFragment_to_loginFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/loginCheckFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_loginCheckFragment_to_homeFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/loginCheckFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

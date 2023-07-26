@@ -9,13 +9,16 @@ import androidx.navigation.fragment.findNavController
 import com.example.presentation.R
 import com.example.presentation.base.BaseFragment
 import com.example.presentation.databinding.FragmentRegistrationBinding
+import com.example.presentation.screens.main.MainViewModel
 import com.example.presentation.utils.getValue
 import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class RegistrationFragment : BaseFragment<FragmentRegistrationBinding>() {
+class RegistrationFragment : BaseFragment<FragmentRegistrationBinding, RegistrationViewModel>() {
 
-    private val viewModel by viewModel<RegistrationViewModel>()
+    override val viewModel by viewModel<RegistrationViewModel>()
+    private val mainViewModel by activityViewModel<MainViewModel>()
     override fun createViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -38,6 +41,9 @@ class RegistrationFragment : BaseFragment<FragmentRegistrationBinding>() {
                     findNavController().navigate(action)
                 }
             }
+        }
+        lifecycleScope.launch {
+            viewModel.processFlow.collect { mainViewModel.processFlow.emit(it) }
         }
         binding.btLogin.setOnClickListener {
             if (checkFields()) {

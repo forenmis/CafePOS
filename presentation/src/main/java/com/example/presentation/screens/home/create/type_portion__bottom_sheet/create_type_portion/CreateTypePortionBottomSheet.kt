@@ -29,11 +29,7 @@ class CreateTypePortionBottomSheet : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        lifecycleScope.launch {
-            viewModel.completeFillFlow.collect {
-                binding.btAdd.isEnabled = it
-            }
-        }
+        lifecycleScope.launch { viewModel.completeFillFlow.collect { binding.btAdd.isEnabled = it } }
         with(binding) {
             etName.doAfterTextChanged { viewModel.saveName(it.toString()) }
             etShortName.doAfterTextChanged { viewModel.saveShortName(it.toString()) }

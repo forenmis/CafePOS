@@ -1,6 +1,5 @@
 package com.example.presentation.screens.main
 
-import androidx.lifecycle.ViewModel
+import com.example.presentation.base.BaseViewModel
 
-class MainViewModel : ViewModel() {
-}
+class MainViewModel : BaseViewModel() {}

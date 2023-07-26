@@ -79,9 +79,6 @@ internal class MenuRepositoryImpl(private val databaseManager: DatabaseManager) 
                 portionSize = 100,
                 categoryId = cakeCategory.id
             )
-            //вставить все
-            //покл рум, вставить
-            //прверить вставку
             databaseManager.insertItem(cappuccino.toMenuItemDB())
             databaseManager.insertItem(coffee.toMenuItemDB())
             databaseManager.insertItem(cheesecake.toMenuItemDB())
@@ -89,6 +86,7 @@ internal class MenuRepositoryImpl(private val databaseManager: DatabaseManager) 
 
         }
     }
+
     override suspend fun getMenu(): List<MenuCategory> {
         val menuCategoriesWithMenuItems = databaseManager.getMenuCategoriesWithMenuItems()
         return menuCategoriesWithMenuItems.map { menuCategoryWithMenuItems ->
@@ -99,7 +97,7 @@ internal class MenuRepositoryImpl(private val databaseManager: DatabaseManager) 
         }
     }
 
-    override suspend fun getPortionById(id : Long): PortionType {
+    override suspend fun getPortionById(id: Long): PortionType {
         val portionType = databaseManager.getPortionById(id)
         return portionType.toMenuPortion()
     }
@@ -118,13 +116,10 @@ internal class MenuRepositoryImpl(private val databaseManager: DatabaseManager) 
     }
 
     override suspend fun saveTypePortion(portionType: PortionType) {
-       return databaseManager.insertPortion(portionType.toMenuPortionDB())
+        return databaseManager.insertPortion(portionType.toMenuPortionDB())
     }
 
     override suspend fun saveCategory(category: MenuCategory) {
-        TODO("Not yet implemented")
+        return databaseManager.insertCategory(category.toMenuCategoryDB())
     }
 }
-
-// databaseManager.insertCategory(coffeeCategory.toMenuCategoryDB())
-//

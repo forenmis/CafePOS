@@ -17,6 +17,10 @@ class AppPreferencesImpl(context: Context) : AppPreferences {
         return appPreference.getString(TOKEN_KEY, null)
     }
 
+    override fun checkToken(): Boolean {
+        return !appPreference.getString(TOKEN_KEY, null).isNullOrEmpty()
+    }
+
     override fun clear() {
         appPreference.edit {
             remove(TOKEN_KEY)
